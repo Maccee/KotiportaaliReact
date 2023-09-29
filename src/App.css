@@ -19,7 +19,7 @@ hr {
 button {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   padding: 0.7rem 0.7rem;
   border: none;
   border-radius: 0.5rem;
@@ -39,7 +39,7 @@ button {
   z-index: 100;
 }
 .content {
-  margin-top: 6rem;
+  margin-top: 8rem;
   font-size: 5rem;
 }
 .moduleHeader {

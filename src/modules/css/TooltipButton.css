@@ -1,9 +1,9 @@
 .circle-btn {
   border: none;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  font-size: 1.5rem;
+  height: 50px;
+  width: 50px;
+  font-size: 3rem;
   cursor: pointer;
   outline: none;
   position: relative;
@@ -14,6 +14,7 @@
 }
 
 .tooltip-window {
+  
 border-radius: 0.5rem;
   z-index: 3001;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -26,6 +27,7 @@ border-radius: 0.5rem;
   max-height: 0;
   transition: max-height 0.5s ease-out, visibility 0.3s ease-out;
   visibility: hidden;
+  font-size: 2.4rem;
 }
 
 .tooltip-window.show {
@@ -34,6 +36,7 @@ border-radius: 0.5rem;
 }
 .tooltip-window button {
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 2rem;
+  background-color: #dcebf5;
   
 }
