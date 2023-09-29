@@ -13,8 +13,7 @@ h1 {
 }
 
 hr {
-
-  color:#b7cede;
+  color: #b7cede;
 }
 button {
   font-family: "Open Sans", sans-serif;
@@ -57,7 +56,7 @@ button {
   font-size: 1rem;
   background-color: white;
   box-shadow: 0 -2px 9px rgba(0, 0, 0, 0.45);
-  top: 0rem; 
+  top: 0rem;
   width: 100%;
   position: relative;
   transform: translateY(-5rem);

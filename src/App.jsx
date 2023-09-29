@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import "./reset.css";
 import "./App.css";
-import { handleTokenCheck, handleLogout } from "./authUtils";
+import { handleTokenCheck } from "./authUtils";
 
 import Pageheader from "./modules/Pageheader";
 import Landingpage from "./modules/Landingpage";

@@ -9,8 +9,8 @@ const MessagesBoard = () => {
   const [loading, setLoading] = useState(false);
   const [addAuthorName, setAddAuthorName] = useState(false);
 
-  const [messageText, setMessageText] = useState(""); // State to store the textarea value
-  const [charCount, setCharCount] = useState(0); // State to store character count
+  const [messageText, setMessageText] = useState("");
+  const [charCount, setCharCount] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -94,19 +94,12 @@ const MessagesBoard = () => {
         {hasError}
         {messages.map((message) => (
           <div key={message.id}>
-            {messages.map((message) => (
-              <div key={message.id}>
-                <span className="seinaPvm">{message.date} </span>
-                {message.author && (
-                  <span className="seinaAuthor">
-                    - Kirjoittanut: {message.author}
-                  </span>
-                )}
-                <p className="seinaViesti">{message.text}</p>
-                <hr />
-              </div>
-            ))}
-
+            <span className="seinaPvm">{message.date} </span>
+            {message.author && (
+              <span className="seinaAuthor">
+                - Kirjoittanut: {message.author}
+              </span>
+            )}
             <p className="seinaViesti">{message.text}</p>
             <hr />
           </div>

@@ -25,22 +25,21 @@ async function loginUser({
       localStorage.setItem("token", data.token);
       setPassword("");
       setUsername("");
-      return true; // Successful login
+      return true;
     } else {
       console.error("Failed to login:", await response.text());
-      return false; // Failed login
+      return false;
     }
   } catch (error) {
     setLoading(false);
     console.error("Error while logging in:", error);
-    return false; // Failed login
+    return false;
   }
 }
 
 const fetchMessages = async () => {
-  const token = localStorage.getItem("token"); // Assuming 'token' is the key used in local storage
+  const token = localStorage.getItem("token");
 
-  // Check if token exists
   if (!token) {
     throw new Error("Token is missing.");
   }

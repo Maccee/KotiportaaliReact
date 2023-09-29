@@ -55,7 +55,6 @@ export const validateToken = async () => {
     );
     if (response.ok) {
       const data = await response.json();
-      console.log("Token verified!");
       return data.valid;
     } else {
       console.error("Failed to validate token:", await response.text());
