@@ -1,0 +1,32 @@
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .input-group i {
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b7cede;
+  }
+  
+  .input-group input {
+    width: 60%;
+    padding: 1rem 1.5rem 1rem 2rem;
+    border: 1px solid #b7cede;
+    border-radius: 5px;
+    text-align: left;
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .spinner {
+    font-size: 3.5rem;
+    color: #b7cede;
+  }

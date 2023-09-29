@@ -1,0 +1,76 @@
+html,
+body {
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+  color: #2a3d57;
+  background-color: #b7cede;
+}
+div {
+  font-size: 1rem;
+}
+h1 {
+  font-size: 3rem;
+}
+
+hr {
+
+  color:#b7cede;
+}
+button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.7rem 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #b7cede;
+  color: #2a3d57;
+  cursor: pointer;
+  letter-spacing: 0.2rem;
+}
+.pageWrapper {
+  position: relative;
+}
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.content {
+  margin-top: 6rem;
+  font-size: 5rem;
+}
+.moduleHeader {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #b6cedf;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+}
+.loginstuff {
+  text-align: right;
+  padding: 0.2rem 0 0.2rem 0;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0 -2px 9px rgba(0, 0, 0, 0.45);
+  top: 0rem; 
+  width: 100%;
+  position: relative;
+  transform: translateY(-5rem);
+  transition: transform 0.9s ease-out;
+}
+.headerWrapper .loginstuff.isAuthenticated {
+  transform: translateY(5rem);
+}
+.loginstuff button {
+  padding: 0 1rem 0 1rem;
+  font-size: 1rem;
+  margin-inline-end: 0.5rem;
+}
+.loginstuff span {
+  padding-inline-start: 0.5rem;
+}

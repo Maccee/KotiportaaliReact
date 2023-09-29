@@ -1,0 +1,32 @@
+.pageHeader  {
+    z-index: 100;
+    background-color: #2a3d57;
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.logojalogin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    font-size:3rem;
+}
+.logojalogin img {
+    max-height: 100%;
+    width: auto;
+    padding-top: 0.5rem;
+}
+.logojalogin i {
+    
+    color: #b7cede;
+    padding-inline-end: 1rem;
+}
+.tooltipButton {
+    padding: 1rem;
+}
+

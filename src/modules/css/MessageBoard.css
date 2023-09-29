@@ -1,0 +1,38 @@
+.textarea-container {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+  }
+  .viestiKentta {
+    width: 90%;
+    height: 75px;
+    resize: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
+  }
+  .counter {
+    font-size: 1rem;
+    color: #3d2e3997;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0.5rem
+  }
+  .heippalappuNapit {
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .seinaPvm {
+    font-size: 1rem;
+  }
+  
+  .seinaViesti {
+    font-size: 1.3rem;
+  }
+  .heippalappuseina {
+    margin: 1rem;
+  }

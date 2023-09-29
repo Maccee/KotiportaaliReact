@@ -1,0 +1,39 @@
+.circle-btn {
+  border: none;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  letter-spacing: 0;
+  display: flex;            /* Enable flexbox */
+  align-items: center;      /* Center vertically */
+  justify-content: center;  
+}
+
+.tooltip-window {
+border-radius: 0.5rem;
+  z-index: 3001;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  position: absolute;
+  right: 0.5rem;
+  overflow: hidden;
+  background-color: #b7cede;
+  text-align: center;
+  margin-top: 0.5rem;
+  max-height: 0;
+  transition: max-height 0.5s ease-out, visibility 0.3s ease-out;
+  visibility: hidden;
+}
+
+.tooltip-window.show {
+  max-height: 250px;
+  visibility: visible;
+}
+.tooltip-window button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  
+}
