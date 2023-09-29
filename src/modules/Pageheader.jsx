@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/pageHeader.css";
+import "./css/Pageheader.css";
 import logo from "../assets/logoportaali.svg";
 import TooltipButton from "./TooltipButton";
 
