@@ -8,7 +8,7 @@ function PageHeader({ showLoginPage, isAuthenticated, setIsAuthenticated }) {
     <>
       <div className="pageHeader">
         <div className="logojalogin">
-          <img src={logo} alt="KotiPortaali -logo" />
+          <img onClick={() => window.location.reload()} src={logo} alt="KotiPortaali -logo" />
           <span style={{ display: isAuthenticated ? "none" : "block" }}>
             <a onClick={showLoginPage}>
               <i className="fa-solid fa-right-to-bracket"></i>
