@@ -27,15 +27,49 @@ async function loginUser({
       setUsername("");
       return true;
     } else {
-      console.error("Failed to login:", await response.text());
-      return false;
+      const errorMsg = await response.text();
+      console.error("Failed to login:", errorMsg);
+      return errorMsg; // Return the error message
     }
   } catch (error) {
     setLoading(false);
     console.error("Error while logging in:", error);
-    return false;
+    return "Unexpected error while logging in.";
   }
 }
+
+const registerUser = async ({ username, password }) => {
+  try {
+    const response = await fetch(
+      "https://kopofunction.azurewebsites.net/api/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          reg: 1, // Indicating registration as per your backend logic
+          username,
+          password,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      // Check if the response is JSON
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return await response.json();
+      } else {
+        return await response.text(); // Return the response as a string if it's not JSON
+      }
+    } else {
+      throw new Error(await response.text());
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
 const fetchMessages = async () => {
   const token = localStorage.getItem("token");
@@ -92,4 +126,4 @@ const sendMessage = async (message, author) => {
   return response.text();
 };
 
-export { loginUser, fetchMessages, sendMessage };
+export { loginUser, fetchMessages, sendMessage, registerUser };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/Loginpage.css";
-import { loginUser } from "../requestToBackendUtils";
+import { loginUser, registerUser } from "../requestToBackendUtils";
 
 function Loginpage({ setIsAuthenticated }) {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
@@ -8,38 +8,59 @@ function Loginpage({ setIsAuthenticated }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const Kirjaudu = async () => {
     if (!username.trim() || !password.trim()) {
-      console.error("Username or Password cannot be empty");
+      setErrorMessage("Täytä kaikki kentät!");
       return;
     }
     setLoading(true);
 
-    const isAuthenticated = await loginUser({
+    const result = await loginUser({
       username,
       password,
       setLoading,
       setUsername,
       setPassword,
     });
-    setIsAuthenticated(isAuthenticated);
+
+    if (typeof result === "boolean" && result) {
+      setIsAuthenticated(true);
+      setErrorMessage(""); // Clear any previous error messages
+    } else {
+      setIsAuthenticated(false);
+      setErrorMessage(result); // Set the returned error message
+    }
   };
 
-  const Rekisteroidy = () => {
+  const Rekisteroidy = async () => {
     if (!username.trim() || !password.trim() || !confirmPassword.trim()) {
-      console.error("Username or Password cannot be empty");
+      setErrorMessage("Täytä kaikki kentät!");
       return;
     }
+
     if (password !== confirmPassword) {
-      console.error("Passwords do not match!");
+      setErrorMessage("Salasanat eivät täsmää!");
       return;
     }
-    console.log("REKISTERÖIDYTÄÄN!");
-    setLoading(false);
-    setPassword("");
-    setUsername("");
-    setConfirmPassword("");
+    if (password === confirmPassword) {
+      setErrorMessage("");
+    }
+
+    try {
+      setLoading(true);
+      const responseMessage = await registerUser({ username, password });
+      setErrorMessage(responseMessage); // Set the response as a message
+      setLoading(false);
+      setPassword("");
+      setUsername("");
+      setConfirmPassword("");
+      toggleRegister();
+    } catch (error) {
+      setLoading(false);
+      setErrorMessage(error.message);
+    }
   };
 
   const toggleRegister = (e) => {
@@ -56,6 +77,7 @@ function Loginpage({ setIsAuthenticated }) {
     <>
       <div className="moduleHeader login-container">
         <h1>Kirjaudu sisään</h1>
+
         <h2>username: a</h2>
         <h2>password: a</h2>
         <div className="input-group">
@@ -67,7 +89,10 @@ function Loginpage({ setIsAuthenticated }) {
             placeholder="Käyttäjänimi"
             required
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setErrorMessage("");
+            }}
             onKeyDown={handleKeyDown}
           />
         </div>
@@ -80,7 +105,10 @@ function Loginpage({ setIsAuthenticated }) {
             placeholder="Salasana"
             required
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setErrorMessage("");
+            }}
             onKeyDown={handleKeyDown}
           />
         </div>
@@ -95,12 +123,16 @@ function Loginpage({ setIsAuthenticated }) {
               placeholder="Vahvista Salasana"
               required
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setErrorMessage("");
+              }}
               onKeyDown={handleKeyDown}
             />
           </div>
         )}
-
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        <p></p>
         <div className="button-group">
           {isRegisterMode ? (
             <button type="button" id="backToLoginBtn" onClick={toggleRegister}>

@@ -30,3 +30,8 @@
     font-size: 3.5rem;
     color: #b7cede;
   }
+  .error-message {
+    font-size: 1.5rem;
+    color: red;
+    margin-bottom: 1rem;
+  }
